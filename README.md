@@ -5,7 +5,7 @@
 Venom C2 is a dependency‑free Python3 Command & Control framework for redteam persistence, built to run on systems without installing packages. It comprises a Flask team server, an Electron operator GUI, and a single‑file Python agent that communicates over HTTP/HTTPS using configurable AES‑encrypted JSON messages. Use it to execute commands, manage files, maintain access, and create SSH reverse tunnels from compromised systems.
 
 
-## Venom C2 Background
+## Background
 
  While escalating network privileges in a target network, we landed on many production Linux systems running exotic distros and architectures. We wanted to set up persistence on these systems, but our arsenal of tools and techniques did not work. Additionally, some of the target systems were running EDR. 
 
