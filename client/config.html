@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration</title>
+  <style>
+    :root {
+      --bg: #1e1e1e;
+      --panel: #232323;
+      --panel-2: #2a2a2a;
+      --text: #d0d0d0;
+      --muted: #9aa0a6;
+      --border: #3a3a3a;
+      --green: #0aa34f;
+      --green-2: #34c759;
+      --red: #ff5f56;
+      --blue: #61afef;
+      --yellow: #e5c07b;
+    }
+    html, body { height:100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .container {
+      width: 100%;
+      max-width: 740px;
+      padding: 16px 18px 18px;
+      box-sizing: border-box;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    h1 { font-size: 18px; color: var(--green); margin: 0; }
+    /* Row-based layout: one setting per row */
+    .rows { display: grid; grid-auto-rows: minmax(56px, auto); gap: 10px; margin-top: 6px; }
+    .form-row { display: grid; grid-template-columns: 180px 1fr; gap: 12px; align-items: center; }
+    label { display:block; margin:0 0 6px; color: var(--muted); font-size: 12px; letter-spacing: .02em; }
+    .form-row label { margin: 0; }
+    input[type="text"], input[type="number"] {
+      width:100%; padding:10px 11px; border-radius:8px; border:1px solid var(--border);
+      background:#1f1f1f; color:#fff; outline:none; transition: border .15s ease, box-shadow .15s ease;
+      box-sizing: border-box;
+    }
+    input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(97,175,239,.15); }
+    .actions { display:flex; align-items:center; gap:10px; margin-top: 6px; }
+    .btn {
+      background:#2b2b2b; color:#fff; border:1px solid var(--border); border-radius:8px; padding:9px 14px; cursor:pointer;
+      transition: background .15s ease, transform .04s ease;
+    }
+    .btn:hover { background:#353535; }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: #0b5; border-color:#0b5; }
+    .btn.primary:hover { background: #0c6; }
+    .btn.primary:disabled { opacity:.55; cursor:not-allowed; }
+    #status { min-height: 20px; margin-top: 8px; font-size: 13px; }
+    .status-muted { color: var(--muted); }
+    .status-success { color: var(--green-2); }
+    .status-error { color: var(--red); }
+    .status-saving { color: var(--yellow); }
+  </style>
+  <script>
+    const { ipcRenderer } = require('electron');
+    let originalCfg = { server: 'localhost', port: 5000, username: 'admin', password: 'gnuDh8VYUYBnHx2Zv3k' };
+    let dirty = false;
+
+    function qs(id){ return document.getElementById(id); }
+
+    function updateStatus(message = '', kind = 'muted') {
+      const el = qs('status');
+      el.className = '';
+      if (!message) { el.textContent = ''; return; }
+      const classMap = {
+        muted: 'status-muted',
+        success: 'status-success',
+        error: 'status-error',
+        saving: 'status-saving'
+      };
+      el.classList.add(classMap[kind] || 'status-muted');
+      el.textContent = message;
+    }
+
+    function setDirtyState(next) {
+      dirty = !!next;
+      qs('saveBtn').disabled = !dirty;
+      if (dirty) updateStatus('Unsaved changes', 'muted');
+      else updateStatus('');
+    }
+
+    async function load() {
+      const cfg = await ipcRenderer.invoke('get-config');
+      originalCfg = {
+        server: cfg.server || 'localhost',
+        port: Number(cfg.port || 5000),
+        username: cfg.username || 'admin',
+        password: cfg.password || 'gnuDh8VYUYBnHx2Zv3k'
+      };
+      qs('server').value = originalCfg.server;
+      qs('port').value = String(originalCfg.port);
+      qs('username').value = originalCfg.username;
+      qs('password').value = originalCfg.password;
+      setDirtyState(false);
+    }
+
+    function validate(server, port) {
+      if (!server) return 'Server is required';
+      if (!/^\S+$/.test(server)) return 'Server must not contain spaces';
+      if (!(Number.isInteger(port) && port >= 1 && port <= 65535)) return 'Port must be 1–65535';
+      return null;
+    }
+
+    async function save() {
+      const server = qs('server').value.trim() || 'localhost';
+      const port = parseInt(qs('port').value, 10) || 5000;
+      const username = qs('username').value.trim() || 'admin';
+      const password = qs('password').value;
+      const err = validate(server, port);
+      if (err) { updateStatus(err, 'error'); return; }
+      updateStatus('Saving…', 'saving');
+      const res = await ipcRenderer.invoke('save-config', { server, port, username, password });
+      // After saving, verify authentication against server
+      const authResult = await ipcRenderer.invoke('auth-test', { server, port, username, password });
+      if (res && res.success) {
+        originalCfg = { server, port, username, password };
+        setDirtyState(false);
+        const ts = new Date().toLocaleTimeString();
+        if (authResult && authResult.success) {
+          updateStatus(`Saved at ${ts}. Auth OK.`, 'success');
+        } else if (authResult && authResult.error === 'auth') {
+          updateStatus('Saved. Authentication failed.', 'error');
+        } else if (authResult && authResult.error === 'unreachable') {
+          updateStatus('Saved. Cannot reach server.', 'error');
+        } else {
+          updateStatus('Saved. Unknown server issue.', 'error');
+        }
+      } else {
+        updateStatus('Failed to save: ' + (res && res.error ? res.error : 'unknown'), 'error');
+      }
+    }
+
+    function onInputChanged() {
+      const server = qs('server').value.trim();
+      const port = parseInt(qs('port').value, 10);
+      const username = qs('username').value.trim();
+      const password = qs('password').value;
+      setDirtyState(server !== originalCfg.server || port !== originalCfg.port || username !== originalCfg.username || password !== originalCfg.password);
+    }
+
+    function handleSubmit(e){ e.preventDefault(); if (!qs('saveBtn').disabled) save(); }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      load();
+      qs('server').addEventListener('input', onInputChanged);
+      qs('port').addEventListener('input', onInputChanged);
+      qs('username').addEventListener('input', onInputChanged);
+      qs('password').addEventListener('input', onInputChanged);
+      // Cmd/Ctrl+S to save
+      window.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 's') { e.preventDefault(); save(); }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <h1>Configuration</h1>
+      </div>
+      <form onsubmit="handleSubmit(event)">
+        <div class="rows">
+          <div class="form-row">
+            <label for="server">Server</label>
+            <input id="server" type="text" placeholder="localhost" autocomplete="off" spellcheck="false" />
+          </div>
+          <div class="form-row">
+            <label for="port">Port</label>
+            <input id="port" type="number" min="1" max="65535" placeholder="5000" />
+          </div>
+          <div class="form-row">
+            <label for="username">Username</label>
+            <input id="username" type="text" placeholder="admin" autocomplete="off" spellcheck="false" />
+          </div>
+          <div class="form-row">
+            <label for="password">Password</label>
+            <input id="password" type="text" placeholder="••••••" autocomplete="off" spellcheck="false" />
+          </div>
+          <!-- Future settings can be added here as rows with the same structure -->
+        </div>
+        <div class="actions">
+          <button id="saveBtn" type="submit" class="btn primary" disabled>Save</button>
+        </div>
+        <div id="status" class="status-muted"></div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+

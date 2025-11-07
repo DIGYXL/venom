@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Command Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; }
+    body { font-family: 'Fira Code', monospace; margin:0; padding:0; background:#1e1e1e; color:#c5c5c5; }
+
+    .split { display:flex; flex-direction:column; height:100vh; padding:16px; gap:12px; overflow:hidden; }
+    h1 { font-size:20px; color:#06883e; margin:0; }
+    .row { display:flex; gap:8px; align-items:center; }
+    select, input, textarea { background:#2e2e2e; color:#fff; border:1px solid #555; border-radius:4px; }
+    select { padding:6px; }
+    button { background:#2e2e2e; color:#fff; border:1px solid #555; padding:6px 10px; border-radius:4px; cursor:pointer; }
+    button:hover { background:#3a3a3a; }
+
+    table { width:100%; table-layout: fixed; border-collapse: collapse; background:#030303; }
+    th, td { border:1px solid #333; padding:8px; text-align:left; vertical-align:middle; overflow:hidden; }
+    thead th { background:#0a0a0a; }
+    tbody tr:nth-child(even) { background:#050505; }
+    tbody tr:nth-child(odd) { background:#020202; }
+    input.command { width:100%; background:#2e2e2e; color:#fff; border:1px solid #555; padding:6px; border-radius:4px; }
+    .drag { cursor: move; color:#aaa; }
+
+    /* Panels */
+    #topPanel { flex: 1 1 60%; min-height: 220px; overflow:auto; }
+    #divider { height: 6px; background:#333; border:1px solid #444; cursor: row-resize; border-radius:2px; flex: 0 0 6px; }
+    #bottomPanel { flex: 0 0 40%; min-height: 180px; display:flex; flex-direction:column; }
+    #bottomPanel label { margin-bottom:6px; color:#c5c5c5; }
+    #outputBox { flex: 1 1 auto; width:100%; padding: 8px 8px 18px 8px; margin-bottom: 10px; resize: none; }
+  </style>
+</head>
+<body>
+  <div id="splitContainer" class="split">
+    <div id="topPanel">
+      <h1>Command Test</h1>
+      <div class="row">
+        <label for="agentSelect">Agent:</label>
+        <select id="agentSelect"></select>
+        <button id="refreshAgentsBtn">Refresh</button>
+      </div>
+      <div class="row">
+        <button id="addRowBtn">Add Command</button>
+        <button id="runSelectedBtn">Run Selected</button>
+        <button id="runAllBtn">Run All</button>
+        <button id="resetBtn">Reset to Default</button>
+        <button id="selectAllBtn">Select All</button>
+        <button id="deselectAllBtn">Deselect All</button>
+      </div>
+      <table id="cmdTable">
+        <thead>
+          <tr>
+            <th style="width:32px;">#</th>
+            <th style="width:24px;"></th>
+            <th>Command</th>
+            <th style="width:96px;">Selected</th>
+            <th style="width:140px;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="cmdTbody"></tbody>
+      </table>
+    </div>
+    <div id="divider"></div>
+    <div id="bottomPanel" class="output">
+      <label for="outputBox">Output</label>
+      <textarea id="outputBox" readonly></textarea>
+    </div>
+  </div>
+  <script src="test.js"></script>
+</body>
+</html>
