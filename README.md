@@ -19,7 +19,7 @@ Since there were many systems, we automated unique obfuscation, naming, filesyst
 
 ![](readmestuff/venomdatacenter.png)
 
-_I named it `Venom` because my son loves the Venom villian from Spider-Man. Plus python is a snake, so it felt like it was a good fit._
+_I named it `Venom` because my son loves the Venom villian from Spider-Man. Plus python is a snake and cool snakes have venom, so it felt like it was a good fit._
 
 
 ## Venom C2 Future
