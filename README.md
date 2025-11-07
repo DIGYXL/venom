@@ -7,11 +7,12 @@ Venom C2 is a dependency‑free Python3 Command & Control framework for redteam 
 
 ## Background
 
- While escalating network privileges in a target network, we landed on many production Linux systems running exotic distros and architectures. We wanted to set up persistence on these systems, but our arsenal of tools and techniques did not work. Additionally, some of the target systems were running EDR. 
+While escalating network privileges we landed on many production systems running exotic distros and architectures. We wanted to set up persistence, but our arsenal of tools and techniques did not work. Additionally, some of the target systems were running EDR. 
 
-These were production systems, so we did not want to install packages and needed a C2 agent that would run without dependencies. The systems had Python3 installed, so we created Venom C2, a dependency‑free Python3 C2 agent that just works. 
+These were production systems, so we did not want to install packages. We needed a C2 agent that would run without dependencies. The systems had Python3 installed, so I created Venom C2 mid-engagement; a dependency‑free Python3 C2 agent that just works. 
 
-We didn't want to use off‑the‑shelf C2 agents because of the risk that they could result in detection by the blue team. Unique code is king for bypassing modern day EDRs.
+We didn't want to use off‑the‑shelf C2 agents because of the risk that they could result in detection by the blue team. 
+_Unique code is king for bypassing modern day EDRs_
 
 Since there were many systems, we automated unique obfuscation, naming, filesystem placement, different network callback domains, and unique network path requests per agent.
 
